@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1>Users</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+{{#each user}}
+    </div>
+    <div class="card">
+        <div class="row">
+            <div class="row float-right">{{email}} <div class="float-right">&&</div>{{phone}}</div>
+            
+        </div>
+        <div class="row">
+            <div class="col-3">{{user_name}}</div>
+            <div class="col-3">{{f_name}}</div>
+            <div class="col-3">{{l_name}}</div>
+        </div>
+{{/each}}
+    </div>
+</div>

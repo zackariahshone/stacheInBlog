@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-console.log('connnected next');
+//console.log('connnected next');
 const connection = mysql.createConnection({
     host: "d1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     port: 3306,
