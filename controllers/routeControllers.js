@@ -6,5 +6,14 @@ router.get('/', function(req,res){
 });
 
 router.get('/api/users', function(req,res){
+
+    blogmod.all(function(data){
+        console.log(data);
+        res.json(data);
+    })
     
 });
+
+
+
+module.exports = router;
