@@ -18,6 +18,8 @@ $(document).ready(function () {
             email: emailInput.val().trim(),
             phone: phoneInput.val().trim(),
         }
+
+        console.log(userData);
     })
 
     if (!userData.userName || !userData.password) {

@@ -1,9 +1,9 @@
 const express = require('express');
 const PORT = process.env.PORT || 8000;
 const app = express();
+const routes = require("./routes/routeControllers.js");
 
-
-let db = require("./models");
+const db = require("./models");
 
 
 app.use(express.static('public'));
@@ -19,8 +19,9 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-require("./routes/routeControllers.js");
-app.use(express.static("public"));
+app.use(routes);
+require("./routes/htmlroutes.js")(app);
+//app.use(express.static("public"));
 
 
 db.sequelize.sync().then(function () {
