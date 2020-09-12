@@ -6,7 +6,7 @@ $.ajax({
     url: "https://www.eventbriteapi.com/v3/categories/?token=GWFXNZZUTNCKCDN34HUJ",
     data: "data",
 }).then(function(response){
-
+console.log(response);
 })
 
     

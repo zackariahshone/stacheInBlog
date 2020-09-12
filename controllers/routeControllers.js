@@ -10,13 +10,10 @@ router.get('/api/users', function(req,res){
 
     blogmod.all(function(data){
         console.log(data);
-        
-        const hbsObj = {
-            user: data
-        }
-        res.render('user', hbsObj);
-    });
-
+      
+        res.json(data);
+    })
+    
 });
 
 module.exports = router;
