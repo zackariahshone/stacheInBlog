@@ -22,7 +22,10 @@ module.exports = function(app) {
   // all route loads the all.html page,
   // where all characters in the db are displayed
   app.get("/dailyblog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/testdaily.html"));
+    res.sendFile(path.join(__dirname, "../public/html/daily.html"));
   });
+  app.get("/stacheup", function(reg, res){
+      res.sendFile(path.join(__dirname, "../public/html/signup.html"));
+  })
 
 };
