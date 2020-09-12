@@ -1,4 +1,4 @@
-use f2ejrfnvmessgh5z;
+/* use f2ejrfnvmessgh5z; */
 
  create table users(
  f_name varchar(12) not null,
