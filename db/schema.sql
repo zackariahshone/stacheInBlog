@@ -8,3 +8,7 @@
  phone int (10) not null,
  );
  
+ create tabel login(
+     userName varchar(20) not null,
+     pwd varchar(20) not null
+ )

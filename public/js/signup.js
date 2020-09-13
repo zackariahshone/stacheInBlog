@@ -11,10 +11,10 @@ $(document).ready(function () {
     signUpForm.on("submit", function (event) {
         event.preventDefault();
         const userData = {
-            userName: userInput.val().trim(),
+            user_name: userInput.val().trim(),
             password: passwordInput.val().trim(),
-            firstName: firstName.val().trim(),
-            lastName: lastName.val().trim(),
+            f_name: firstName.val().trim(),
+            l_name: lastName.val().trim(),
             email: emailInput.val().trim(),
             phone: phoneInput.val().trim(),
         }
@@ -37,8 +37,11 @@ $(document).ready(function () {
 
 function signUpUser(userName, password) {
     $.post("/api/signup", {
-      userName: userName,
-      password: password
+      f_name: firstName.val().trim(),
+      l_name: lastName.val().trim(),
+      user_name: userInput.val().trim(),
+      email: emailInput.val().trim(),
+      phone: phoneInput.val().trim(),
     })
       .then(function(data) {
         window.location.replace("/crossroads");
