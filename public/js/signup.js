@@ -6,11 +6,13 @@ $(document).ready(function () {
     const emailInput = $("#email-input");
     const phoneInput = $("#phone-input");
     const passwordInput = $("#password-input");
+    let userData;
 
-
-    signUpForm.on("submit", function (event) {
-        event.preventDefault();
-        const userData = {
+    $('#test').on("click", function (event) {
+        
+      
+      //event.preventDefault();
+           userData = {
             user_name: userInput.val().trim(),
             password: passwordInput.val().trim(),
             f_name: firstName.val().trim(),
@@ -19,39 +21,36 @@ $(document).ready(function () {
             phone: phoneInput.val().trim(),
         }
 
-        console.log(userData);
-    })
+        console.log('user data created', userData);
+        // if (!userData.user_name || !userData.password) {
+        //       return;
+        //   }
+        $.ajax('/api/users',{
+            type: 'POST',
+            data: userData        
+        }).then(
+          function(){
+            console.log(`New sign up from ${userData.f_name} ${userData.l_name}`);
+          })
+    });
 
-    if (!userData.userName || !userData.password) {
-        return;
-    }
-
-    signUpUser(userData.userName, userData.password);
-    userInput.val("");
-    passwordInput.val("");
-    firstName.val("");
-    lastName.val("");
-    emailInput.val("");
-    phoneInput.val("");
+      //   function signUpUser(userName, password) {
+  //     $.post("/api/signup", {
+  //     f_name: firstName.val().trim(),
+  //     l_name: lastName.val().trim(),
+  //     user_name: userInput.val().trim(),
+  //     email: emailInput.val().trim(),
+  //     phone: phoneInput.val().trim(),
+  //   })
+  //   .then(function(data) {
+  //     window.location.replace("/crossroads");
+  //     // If there's an error, handle it by throwing up a bootstrap alert
+  //   })
+  //   .catch(handleLoginErr);
+  // }
+  // ​
+  // function handleLoginErr(err) {
+  //   $("#alert .msg").text(err.responseJSON);
+  //   $("#alert").fadeIn(500);
+  // }
 });
-
-function signUpUser(userName, password) {
-    $.post("/api/signup", {
-      f_name: firstName.val().trim(),
-      l_name: lastName.val().trim(),
-      user_name: userInput.val().trim(),
-      email: emailInput.val().trim(),
-      phone: phoneInput.val().trim(),
-    })
-      .then(function(data) {
-        window.location.replace("/crossroads");
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
-      .catch(handleLoginErr);
-  }
-​
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
-  }
-
