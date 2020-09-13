@@ -3,7 +3,7 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 
 
-let db = require("./models");
+const db = require("./models");
 
 
 app.use(express.static('public'));
