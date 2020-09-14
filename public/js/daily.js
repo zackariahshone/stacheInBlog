@@ -14,15 +14,13 @@ $("#test").on('click', function(event){
     }
     console.log(newPost);
 
-    $.ajax({
+    $.ajax("/api/stacheposts",{
         type: "POST",
-        url: "/api/stacheposts",
-        data: newPost,
+        data: newPost
     }).then(
         function(){
             console.log(`New post by ${newPost.author} was made.`);
-        }
-    );
+        });
 });
 
 });
