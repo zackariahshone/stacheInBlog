@@ -6,7 +6,6 @@ const routes = require("./routes/routeControllers.js");
 const db = require("./models");
 
 
-app.use(express.static('public'));
 app.use(express.urlencoded({
   extended: true
 }));
@@ -21,7 +20,8 @@ app.set('view engine', 'handlebars');
 
 app.use(routes);
 require("./routes/htmlroutes.js")(app);
-//app.use(express.static("public"));
+app.use(express.static('public'));
+
 
 
 db.sequelize.sync().then(function () {
