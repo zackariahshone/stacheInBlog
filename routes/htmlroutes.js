@@ -10,17 +10,14 @@ module.exports = function(app) {
   // index route loads view.html
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/login.html"));
-    res.send('test');
   });
 
-  // add route loads the add.html page,
-  // where users can enter new characters to the db
+ 
   app.get("/crossroads", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/crossroads.html"));
   });
 
-  // all route loads the all.html page,
-  // where all characters in the db are displayed
+  
   app.get("/dailyblog", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/daily.html"));
   });

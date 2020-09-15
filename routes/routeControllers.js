@@ -3,9 +3,9 @@ const db = require("../models");
 
 const router = express.Router();
 
-router.get('/', function(req,res){
-    res.render('login');
-});
+// router.get('/', function(req,res){
+//     res.render('login');
+// });
 
 router.get("/api/allusers", function(req,res){
 
