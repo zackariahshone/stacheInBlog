@@ -11,16 +11,7 @@ $(document).ready(function () {
     };
     console.log(userData.userName);
     console.log(userData.password);
-    // if (!userData.userName || !userData.password) {
-    //     return;
-    // }
-
-    //     loginUser(userData.userName, userData.password);
-    //     userInput.val("");
-    //     passwordInput.val("");
-    // });
-
-
+   
     $.ajax({
         url: '/api/allusers',
         method: "GET"
