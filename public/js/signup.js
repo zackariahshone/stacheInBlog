@@ -7,7 +7,7 @@ $(document).ready(function () {
     const phoneInput = $("#phone-input");
     const passwordInput = $("#password-input");
     let userData;
-
+    const errormessage = $(".error")
     $('#test').on("click", function (event) {
         
       
@@ -31,6 +31,7 @@ $(document).ready(function () {
         }).then(
           function(){
             console.log(`New sign up from ${userData.f_name} ${userData.l_name}`);
+
             window.location.replace("/crossroads");
           });
     });

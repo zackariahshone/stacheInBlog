@@ -13,6 +13,12 @@ router.get("/api/allusers", function(req,res){
         res.json(dbUsers);
     })    
 });
+// router.get("/api/allblogs", function(req,res){
+
+//   db.users.findAll({}).then(function(blogs){
+//       res.json(blogs);
+//   })    
+// });
 
 router.post('/api/users', function(req,res){
 
