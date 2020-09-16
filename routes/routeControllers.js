@@ -30,14 +30,33 @@ router.post('/api/users', function(req,res){
         email: req.body.email,
         phone:req.body.phone
         //f_name: 
-      }).then(function(dbTodo) {
+      }).then(function(users) {
         // We have access to the new todo as an argument inside of the callback function
-        res.json(dbTodo);
+        res.json(users);
       });
     });
 
+    router.get("/api/allblogsstached", function(req,res){
 
+        db.blog.findAll({}).then(function(dbBlogs){
+            res.json(dbBlogs);
+        });    
+    });
     
+    router.post("/api/stacheposts", function(req, res){
+        console.log('response from route');
+        console.log(`Title: ${req.body.title} Author: ${req.body.author} Blog: ${req.body.blog}`);
+
+        db.blog.create({
+           author: req.body.author,
+           bloginput: req.body.blog,
+           title: req.body.title
+            //f_name: 
+          }).then(function(blog) {
+            // We have access to the new todo as an argument inside of the callback function
+            res.json(blog);
+          });
+    });
 
 
 module.exports = router;
