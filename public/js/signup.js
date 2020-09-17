@@ -31,7 +31,6 @@ $(document).ready(function () {
         }).then(
           function(){
             console.log(`New sign up from ${userData.f_name} ${userData.l_name}`);
-
             window.location.replace("/crossroads");
           });
     });

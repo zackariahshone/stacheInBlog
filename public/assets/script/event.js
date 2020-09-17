@@ -15,17 +15,16 @@
     
 const https = require('https');
 
-https.get("https://www.eventbriteapi.com/v3/categories/?token=GWFXNZZUTNCKCDN34HUJ", (res) => {
 
-    let data = '';
 
-    res.on('data', (chunk) => {
-        data += chunk;
-    });
+$.ajax({
+    type: "get",
+    url: "/api/eventserch",
+    data: "data",
+    dataType: "dataType",
+    success: function (response) {
+        
+        response 
 
-    res.on('end', () => {
-
-        console.log();
-    
-    });
+    }
 });
