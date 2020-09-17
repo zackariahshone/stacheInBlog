@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes) {
       l_name: DataTypes.STRING,
       user_name:DataTypes.STRING,
       email:DataTypes.STRING,
-      phone:DataTypes.INTEGER
+      phone:DataTypes.INTEGER,
+      pwd: DataTypes.STRING
     });
     return users;
   };
