@@ -1,7 +1,7 @@
 $(document).ready(function () {
     
 let newPost;
-$("#test").on('click', function(event){
+$("#submit").on('click', function(event){
 
     const author = $('#author').val();
     const blog = $("#blog").val();
