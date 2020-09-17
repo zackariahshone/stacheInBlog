@@ -7,18 +7,18 @@ $(document).ready(function () {
     const phoneInput = $("#phone-input");
     const passwordInput = $("#password-input");
     let userData;
-
+    const errormessage = $(".error")
     $('#test').on("click", function (event) {
         
       
       //event.preventDefault();
            userData = {
             user_name: userInput.val().trim(),
-            password: passwordInput.val().trim(),
             f_name: firstName.val().trim(),
             l_name: lastName.val().trim(),
             email: emailInput.val().trim(),
             phone: phoneInput.val().trim(),
+            pwd: passwordInput.val().trim()
         }
 
         console.log('user data created', userData);

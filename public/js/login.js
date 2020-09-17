@@ -15,15 +15,15 @@ $(document).ready(function () {
     $.ajax({
         url: '/api/allusers',
         method: "GET"
-      }).then(function (res) {
-        window.location.replace("/crossroads");
-        console.log('should be all data', res);
+      }).then(function (users) {
+        //window.location.replace("/crossroads");
+        console.log('should be all data', users);
         
-        for (let i = 0; i > res.length; i++) {
-          if (userData.userName === res[i].f_name) {
-              console.log('matches');
+        for (let i = 0; i < users.length; i++) {
+          if (userData.userName === users[i].f_name) {
+            console.log('matches');
           }else{
-              console.log('go to sign up');
+            console.log('go to sign up');
           }
         }
       })
