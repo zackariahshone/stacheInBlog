@@ -14,11 +14,11 @@ $(document).ready(function () {
       //event.preventDefault();
            userData = {
             user_name: userInput.val().trim(),
-            password: passwordInput.val().trim(),
             f_name: firstName.val().trim(),
             l_name: lastName.val().trim(),
             email: emailInput.val().trim(),
             phone: phoneInput.val().trim(),
+            pwd: passwordInput.val().trim()
         }
 
         console.log('user data created', userData);
