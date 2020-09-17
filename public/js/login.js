@@ -3,7 +3,7 @@ $(document).ready(function () {
   const userInput = $("#user-input");
   const passwordInput = $("#password-input");
   let userData= '';
-  $('#test').on("click", function (event) {
+  $('#submit').on("click", function (event) {
     //event.preventDefault();
        userData = {
       userName: userInput.val().trim(),
@@ -16,13 +16,12 @@ $(document).ready(function () {
         url: '/api/allusers',
         method: "GET"
       }).then(function (users) {
-        //window.location.replace("/crossroads");
         console.log('should be all data', users);
         
         for (let i = 0; i < users.length; i++) {
-          if (userData.userName === users[i].user_name && users.pwd){
-            window.location.replace("/crossroads");
+          if (userData.userName === users[i].user_name) {
             console.log('matches');
+            window.location.replace("/crossroads");
           }else{
             console.log('go to sign up');
           }

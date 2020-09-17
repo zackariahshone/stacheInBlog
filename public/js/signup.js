@@ -8,7 +8,7 @@ $(document).ready(function () {
     const passwordInput = $("#password-input");
     let userData;
     const errormessage = $(".error")
-    $('#test').on("click", function (event) {
+    $('#submit').on("click", function (event) {
         
       
       //event.preventDefault();
