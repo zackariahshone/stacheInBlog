@@ -21,6 +21,9 @@ $(document).ready(function () {
             pwd: passwordInput.val().trim()
         }
 
+        // if(userData.user_name=== '' || userData.user_name === null){
+
+        // }
         console.log('user data created', userData);
         // if (!userData.user_name || !userData.password) {
         //       return;

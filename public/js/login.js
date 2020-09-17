@@ -20,7 +20,8 @@ $(document).ready(function () {
         console.log('should be all data', users);
         
         for (let i = 0; i < users.length; i++) {
-          if (userData.userName === users[i].f_name) {
+          if (userData.userName === users[i].user_name && users.pwd){
+            window.location.replace("/crossroads");
             console.log('matches');
           }else{
             console.log('go to sign up');
