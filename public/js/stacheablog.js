@@ -20,6 +20,8 @@ $("#submit").on('click', function(event){
     }).then(
         function(){
             console.log(`New post by ${newPost.author} was made.`);
+            window.location.replace("/daily");
+
         });
 });
 
