@@ -31,9 +31,9 @@ module.exports = function(app) {
   app.get("/events", function(req, res){
     res.sendFile(path.join(__dirname, "../public/html/events.html"));
 });
-app.get("/daily", function(req, res){
-  res.sendFile(path.join(__dirname, "../public/html/daily.html"));
-});
+// app.get("/daily", function(req, res){
+//   res.sendFile(path.join(__dirname, "../public/html/daily.html"));
+// });
 
 
 };
