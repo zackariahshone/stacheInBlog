@@ -2,14 +2,14 @@ const express = require('express');
 const phq = require('predicthq');
 const nodeFetch = require('node-fetch');
 const db = require("../models");
-const passport = require("../config/middleware/passport");
+
 //const { JSON } = require('sequelize/types');
 
 const router = express.Router();
 
 
 
-router.post("/api/login", passport.authenticate("local"), function (req, res) {
+router.post("/api/login", function (req, res) {
     res.json(req.user);
 });
 
