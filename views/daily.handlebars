@@ -1,12 +1,22 @@
-<img src="../public/assets/imgs/StacheLogo.JPG" width="25%">
+ <div class="container">
+        <div class="row justify-content-center">
+         <center>  <a href="/crossroads"> <img src="../assets/imgs/StacheLogoBlack.jpg" id="logo" width="35%"></a></center>
 
-<div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Daily 'Stache Blogs!</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
         </div>
     </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            {{#each blog}}
+            <div class="card" style="width: 100%; margin-bottom: 10px;">
+                <div class="card-body">
+                  <h5 class="card-title">{{title}}</h5>
+                    <h2 class="card-title">{{author}}</h2>
+                  <p class="card-text">{{bloginput}}</p>
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+            {{/each}}
+        </div>   
 
-</div>
-</div>
+    </div>
