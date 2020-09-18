@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require("axios");
 const db = require("../models");
-const passport = require("../config/middleware/passport");
+
 //const { JSON } = require('sequelize/types');
 
 const router = express.Router();
@@ -23,9 +23,9 @@ const blogObj = [{
 }
 ]
 
-router.post("/api/login", passport.authenticate("local"), function(req, res) {
-  res.json(req.user);
-});
+// router.post("/api/login", passport.authenticate("local"), function(req, res) {
+//   res.json(req.user);
+// });
 
 // router.get('/', function(req,res){
 //     res.render('login');
