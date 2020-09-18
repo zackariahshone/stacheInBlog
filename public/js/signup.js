@@ -20,7 +20,10 @@ $(document).ready(function () {
             email: emailInput.val().trim(),
             phone: phoneInput.val().trim(),
         }
-
+        if (userData.password === "" && userData.user_name === "") {
+          alert("Please enter user name and password");
+          return false;
+        }
         console.log('user data created', userData);
         // if (!userData.user_name || !userData.password) {
         //       return;
@@ -33,7 +36,9 @@ $(document).ready(function () {
             console.log(`New sign up from ${userData.f_name} ${userData.l_name}`);
             window.location.replace("/crossroads");
           });
-    });
+          
+        });
+       
 
       //   function signUpUser(userName, password) {
   //     $.post("/api/signup", {

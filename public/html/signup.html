@@ -24,34 +24,35 @@
     <div class="row justify-content-center">
       <div class="col-md-6 col">
 
-        <form class="signup">
+        <form class="signup" name= "signup">
           <div class="form-group">
             <label for="first">First Name</label>
-            <input type="text" class="form-control" id="fname-input" placeholder="Stache">
+            <input type="text" name= "fName" class="form-control" id="fname-input" required placeholder="Stache">
           </div>
           <div class="form-group">
             <label for="last">Last Name</label>
-            <input type="text" class="form-control" id="lname-input" placeholder="Man">
+            <input type="text" class="form-control" id="lname-input" required placeholder="Man">
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" class="form-control" id="email-input" placeholder="StacheMan@email.com">
+            <input type="text" class="form-control" id="email-input" required placeholder="StacheMan@email.com">
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="text" class="form-control" id="phone-input" placeholder="555-555-5555">
+            <input type="text" class="form-control" id="phone-input" required placeholder="555-555-5555">
           </div>
           <div class="form-group">
             <label for="user">Username</label>
-            <input type="text" class="form-control" id="user-input" placeholder="Stashman87">
+            <input type="text" class="form-control" id="user-input" required placeholder="Stashman87">
           </div>
           <div class="form-group">
             <label for="pass">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="SecretStache!">
+            <input type="password" class="form-control" id="password-input" required placeholder="SecretStache!">
           </div>
         </form>
-        <center><button type="submit" class="btn btn-primary">Submit</button></center>
-        </form>
+        <center><button onsubmit = "validateForm()" type="submit" class="btn btn-primary">Submit</button></center>
+        <!-- <input type="submit" value="Submit"> -->
+      </form>
         <button id="test">Test</button>
       </div>
     </div>
