@@ -3,15 +3,9 @@ module.exports = function(sequelize, DataTypes) {
       f_name: DataTypes.STRING,
       l_name: DataTypes.STRING,
       user_name:DataTypes.STRING,
-      email:{
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          isEmail: true
-        }
-      },
-        
-      phone:DataTypes.INTEGER
+      email:DataTypes.STRING,
+      phone:DataTypes.INTEGER,
+      pwd: DataTypes.STRING
     });
     return users;
   };

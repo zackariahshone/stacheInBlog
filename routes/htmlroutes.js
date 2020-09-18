@@ -7,15 +7,13 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 // =============================================================
 module.exports = function(app) {
 
-  // Each of the below routes just handles the HTML page that the user gets sent to.
-
-  // index route loads view.html
+ 
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
 
  
-  app.get("/crossroads",isAuthenticated, function(req, res) {
+  app.get("/crossroads", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/crossroads.html"));
   });
 
@@ -33,9 +31,9 @@ module.exports = function(app) {
   app.get("/events", function(req, res){
     res.sendFile(path.join(__dirname, "../public/html/events.html"));
 });
-app.get("/daily", function(req, res){
-  res.sendFile(path.join(__dirname, "../public/html/daily.html"));
-});
+// app.get("/daily", function(req, res){
+//   res.sendFile(path.join(__dirname, "../public/html/daily.html"));
+// });
 
 
 };

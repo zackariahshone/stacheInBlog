@@ -1,7 +1,7 @@
 $(document).ready(function () {
     
 let newPost;
-$("#test").on('click', function(event){
+$("#submit").on('click', function(event){
 
     const author = $('#author').val();
     const blog = $("#blog").val();
@@ -20,6 +20,8 @@ $("#test").on('click', function(event){
     }).then(
         function(){
             console.log(`New post by ${newPost.author} was made.`);
+            window.location.replace("/daily");
+
         });
 });
 
