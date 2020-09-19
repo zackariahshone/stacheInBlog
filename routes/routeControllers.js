@@ -2,10 +2,15 @@ const express = require('express');
 const phq = require('predicthq');
 const nodeFetch = require('node-fetch');
 const db = require("../models");
-
+const client = new phq.Client({
+    access_token: 'w0fw-tkfu6Ztt6PllXl8E9gmp2VanyfnpGpH6bvm',
+    fetch: nodeFetch
+});
 //const { JSON } = require('sequelize/types');
 
 const router = express.Router();
+
+
 
 
 
@@ -46,7 +51,7 @@ router.get("/api/allblogsstached", function (req, res) {
 
 router.get("/daily", function (req, res) {
 
-    let blogs;
+   
     db.blog.findAll({}).then(function (data) {
 
 
@@ -78,22 +83,49 @@ router.post("/api/stacheposts", function (req, res) {
     });
 });
 
-router.get("/api/test", function (req, res) {
-    // const phq = require('predicthq');
-    const client = new phq.Client({
-        access_token: 'w0fw-tkfu6Ztt6PllXl8E9gmp2VanyfnpGpH6bvm',
-        fetch: nodeFetch
-    });
-    //const URL = "https://control.predicthq.com/search/events?category=festivals,performing-arts,community,sports,concerts&place.scope=5313457,5308655,4128894,4948899,5318313,5289282,6252001&label=automotive,attraction&label.op=any&state=active,deleted&deleted_reason=cancelled&sort=rank";
-
+router.get('/api/events', function(req, res){
 
     client.events.search()
         .then(
             (results) => {
-                for (const event of results) {
-                    res.send(event);
-                }
+             
+                res.send(results);
+                // for (const event of results) {
+                //    let obj = {};
+                //    obj = event;
+                //    hbArr.push(obj);
+                // }
+
+                // console.log(hbArr);
+                // res.send(hbArr);
             }
+        ).catch(
+            err => console.error(err)
+        );
+
+});
+
+router.get("/events", function (req, res) {
+    // const phq = require('predicthq');
+    
+    //const URL = "https://control.predicthq.com/search/events?category=festivals,performing-arts,community,sports,concerts&place.scope=5313457,5308655,4128894,4948899,5318313,5289282,6252001&label=automotive,attraction&label.op=any&state=active,deleted&deleted_reason=cancelled&sort=rank";
+    let hbArr = [];
+    client.events.search({q:"cars"})
+        .then(
+            (results) => {
+                for (const event of results) {
+                    let i = 0; i++;
+                    let obj = {};
+                    obj = event;
+                    console.log("Object number ",i, obj);
+                    hbArr.push(obj);
+                 }
+                const hbObj = {
+                    events: hbArr
+                }
+               //  console.log(hbObj);
+                 res.render('events', hbObj);
+             }
         ).catch(
             err => console.error(err)
         );
