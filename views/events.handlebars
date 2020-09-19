@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <center><a href="/crossroads"><img src="../assets/imgs/StacheLogoBlack.jpg" id="logo" width="35%"></a></center>
+
+    </div>
+</div>
+
+<div class="container" id="events"> 
+    
+<div class="row">
+    {{#each events}}
+    <div class="col ">
+        <div class=" container cards overflow-hidden">
+            <div class="row justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{description}}</p>
+                        <p class="card-text">{{category}}</p>
+                        <p class="card-text">{{timezone}}</p>
+                        <p>Additional information: {{#each entities}}
+                            <p>Address: {{formatted_address}}</p>
+                            <p>The {{type}} name {{name}}</p>
+                            {{/each}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{/each}}
+</div>
+</div>
