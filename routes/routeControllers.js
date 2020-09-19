@@ -61,7 +61,7 @@ router.get("/daily", function (req, res) {
             }
         })
 
-        console.log('the object shoudl be here', newObj);
+       
         res.render('daily', {
             blog: newObj
         });
@@ -90,14 +90,6 @@ router.get('/api/events', function(req, res){
             (results) => {
              
                 res.send(results);
-                // for (const event of results) {
-                //    let obj = {};
-                //    obj = event;
-                //    hbArr.push(obj);
-                // }
-
-                // console.log(hbArr);
-                // res.send(hbArr);
             }
         ).catch(
             err => console.error(err)
@@ -105,12 +97,37 @@ router.get('/api/events', function(req, res){
 
 });
 
+
+router.post("/events/search", function (req, res){
+    let hbArr = [];
+    client.events.search({q:req.body.event})
+    .then(
+        (results) => {
+            for (const event of results) {
+                let i = 0; i++;
+                let obj = {};
+                obj = event;
+                console.log("Object number ",i, obj);
+                hbArr.push(obj);
+             }
+            const hbObj = {
+                events: hbArr
+            }
+           //  console.log(hbObj);
+             res.render('events',{data:hbObj, layout:false});
+         }
+    ).catch(
+        err => console.error(err)
+    );
+    
+});
+
 router.get("/events", function (req, res) {
     // const phq = require('predicthq');
     
     //const URL = "https://control.predicthq.com/search/events?category=festivals,performing-arts,community,sports,concerts&place.scope=5313457,5308655,4128894,4948899,5318313,5289282,6252001&label=automotive,attraction&label.op=any&state=active,deleted&deleted_reason=cancelled&sort=rank";
     let hbArr = [];
-    client.events.search({q:"cars"})
+    client.events.search({q:''})
         .then(
             (results) => {
                 for (const event of results) {
