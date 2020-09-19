@@ -15,11 +15,9 @@ console.log('jquery conected');
                 url: "/events/search",
                 data: data,
                 dataType: "dataType",
-                success: function (res) {
-                    console.log('success');
+            }).then(function (res) {
+                console.log('success');
                 document.body.innerHTML = res;
-                }
             });
-          
-            });
+            })
         });
