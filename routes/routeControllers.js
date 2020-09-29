@@ -82,7 +82,7 @@ router.post("/api/stacheposts", function (req, res) {
         res.json(blog);
     });
 });
-
+//events controllers
 router.get('/api/events', function(req, res){
 
     client.events.search()
@@ -97,9 +97,9 @@ router.get('/api/events', function(req, res){
 
 });
 
-
+let hbArr=[];
 router.post("/events/search", function (req, res){
-    let hbArr = [];
+    hbArr = [];
     client.events.search({q:req.body.event})
     .then(
         (results) => {
@@ -107,14 +107,15 @@ router.post("/events/search", function (req, res){
                 let i = 0; i++;
                 let obj = {};
                 obj = event;
-                console.log("Object number ",i, obj);
+               // console.log("Object number ",i, obj);
                 hbArr.push(obj);
              }
             const hbObj = {
                 events: hbArr
             }
-           //  console.log(hbObj);
-             res.render('events',{data:hbObj, layout:false});
+            console.log(hbObj);
+             res.render('events',{hbObj, layout:false});
+            //res.send('success');
          }
     ).catch(
         err => console.error(err)
@@ -134,7 +135,7 @@ router.get("/events", function (req, res) {
                     let i = 0; i++;
                     let obj = {};
                     obj = event;
-                    console.log("Object number ",i, obj);
+                   // console.log("Object number ",i, obj);
                     hbArr.push(obj);
                  }
                 const hbObj = {
@@ -147,8 +148,4 @@ router.get("/events", function (req, res) {
             err => console.error(err)
         );
 });
-
-
-
-
 module.exports = router;
